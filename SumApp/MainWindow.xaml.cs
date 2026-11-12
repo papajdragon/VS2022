@@ -6,6 +6,11 @@ namespace SumApp;
 
 public partial class MainWindow : Window
 {
+    private static readonly Brush OkBg = Brush("#E8F0FE"), OkFg = Brush("#1967D2");
+    private static readonly Brush ErrBg = Brush("#FCE8E6"), ErrFg = Brush("#D93025");
+
+    private static Brush Brush(string hex) => (Brush)new BrushConverter().ConvertFromString(hex)!;
+
     public MainWindow()
     {
         InitializeComponent();
@@ -21,17 +26,21 @@ public partial class MainWindow : Window
 
     private void Calculate()
     {
+        resultBox.Visibility = Visibility.Visible;
+
         if (!long.TryParse(txtEnd.Text.Trim(), out long n) || n < 1)
         {
-            lblResult.Foreground = Brushes.Red;
+            resultBox.Background = ErrBg;
+            lblResult.Foreground = ErrFg;
             lblResult.Text = "1 이상의 정수를 입력하세요.";
             return;
         }
 
-        // 등차수열 합 공식 (큰 수에서도 빠르게): n(n+1)/2 — 오버플로 방지를 위해 decimal 사용
+        // n(n+1)/2 — 오버플로 방지를 위해 decimal 사용
         decimal sum = (decimal)n * (n + 1) / 2;
 
-        lblResult.Foreground = Brushes.Black;
+        resultBox.Background = OkBg;
+        lblResult.Foreground = OkFg;
         lblResult.Text = $"합계: {sum:N0}";
     }
 }
