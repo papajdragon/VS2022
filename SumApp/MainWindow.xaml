@@ -1,7 +1,7 @@
 <Window x:Class="SumApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="합계 계산기" Height="400" Width="460"
+        Title="합계 계산기" SizeToContent="Height" Width="460"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
         Background="#F1F3F4" FontFamily="Google Sans, Segoe UI, Malgun Gothic">
 
