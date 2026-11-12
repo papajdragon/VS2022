@@ -1,0 +1,26 @@
+<Window x:Class="SumApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="1부터 N까지 합계" Height="220" Width="380"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="끝 수:" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14" />
+            <TextBox x:Name="txtEnd" Width="140" FontSize="14" VerticalContentAlignment="Center"
+                     KeyDown="TxtEnd_KeyDown" />
+            <Button x:Name="btnCalc" Content="계산" Width="70" Margin="10,0,0,0" FontSize="14"
+                    IsDefault="True" Click="BtnCalc_Click" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Text="1 + 2 + ... + 끝 수 의 합" Margin="0,15,0,0" Foreground="Gray" />
+
+        <TextBlock Grid.Row="2" x:Name="lblResult" FontSize="20" FontWeight="Bold"
+                   VerticalAlignment="Center" TextWrapping="Wrap" />
+    </Grid>
+</Window>
